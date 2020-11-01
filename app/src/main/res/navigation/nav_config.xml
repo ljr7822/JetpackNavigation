@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_config"
+    app:startDestination="@id/login_fragment"
+    tools:ignore="UnusedNavigation">
+
+    <fragment
+        android:id="@+id/login_fragment"
+        android:name="com.example.iwen.jetpacknavigation.fragment.LoginFragment">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/forget_fragment"
+        android:name="com.example.iwen.jetpacknavigation.fragment.ForgetFragment">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/register_fragment"
+        android:name="com.example.iwen.jetpacknavigation.fragment.RegisterFragment">
+
+    </fragment>
+
+</navigation>

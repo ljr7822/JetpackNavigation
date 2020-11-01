@@ -2,8 +2,6 @@
 
 **官方介绍：**[Navigation](https://developer.android.google.cn/topic/libraries/architecture/navigation/navigation-implementing) 是一个框架，用于在 Android 应用中的“目标”之间导航，该框架提供一致的 API，无论目标是作为 Fragment、Activity 还是其他组件实现。
 
-
-
 ## 二、JetPack组件Navigation基本使用
 
 #### 1、导入依赖
@@ -272,4 +270,135 @@ rootView.toAgreementPage.setOnClickListener {
             findNavController().navigate(R.id.to_agreement_page)
         }
 ```
+
+#### 3、添加动画效果
+
+##### 3.1、创建一个amin文件夹
+
+##### 3.2、编写进入动画xml文件
+
+- slide_from_right_to_left_in.xml
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+    <translate
+        android:duration="400"
+        android:fromXDelta="100%p"
+        android:toXDelta="0" />
+</set>
+```
+
+- slide_from_right_to_left_out.xml
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+    <translate
+        android:duration="400"
+        android:fromXDelta="0"
+        android:toXDelta="-100%p" />
+</set>
+```
+
+- 使用动画
+
+```xml
+<action
+            android:id="@+id/to_register_fragment"
+            app:destination="@id/register_fragment"
+            app:enterAnim="@anim/slide_from_right_to_left_in"
+            app:exitAnim="@anim/slide_from_right_to_left_out" />
+```
+
+##### 3.3、编写返回动画xml文件
+
+- slide_from_left_to_right_in.xml
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+    <translate
+        android:duration="400"
+        android:fromXDelta="-100%p"
+        android:toXDelta="0" />
+</set>
+```
+
+- slide_from_left_to_right_out.xml
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+    <translate
+        android:duration="400"
+        android:fromXDelta="0"
+        android:toXDelta="100%p" />
+</set>
+```
+
+- 使用动画
+
+```xml
+<action
+            android:id="@+id/to_register_fragment"
+            app:destination="@id/register_fragment"
+            app:popEnterAnim="@anim/slide_from_left_to_right_in"
+            app:popExitAnim="@anim/slide_from_left_to_right_out"/>
+```
+
+##### 3.4、全局动画配置
+
+- 修改主题
+
+```xml
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowAnimationStyle">@style/activityAnimation</item>
+    </style>
+
+    <style name="activityAnimation" parent="@android:style/Animation">
+        <item name="android:activityOpenEnterAnimation">@anim/slide_from_right_to_left_in</item>
+        <item name="android:activityOpenExitAnimation">@anim/slide_from_right_to_left_out</item>
+        <item name="android:activityCloseEnterAnimation">@anim/slide_from_left_to_right_in</item>
+        <item name="android:activityCloseExitAnimation">@anim/slide_from_left_to_right_out</item>
+    </style>
+
+</resources>
+```
+
+想了解更多，可以参考我的另外一篇文章
+
+[Activity全局动画]:https://juejin.im/post/6890195769437978632/
+
+#### 4、跳转与回退
+
+##### 4.1、跳转
+
+- kotlin
+
+```kotlin
+Fragment.findNavController()
+View.findNavController()
+Activity.findNavController(viewId: Int)
+```
+
+- java
+
+```java
+NavHostFragment.findNavController(Fragment)
+Navigation.findNavController(Activity, @IdRes int viewId)
+Navigation.findNavController(View)
+```
+
+##### 4.2、回退
+
+- NavController.navigateUp()
+
+- NavController.popBackStack()
 

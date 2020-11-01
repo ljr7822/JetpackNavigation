@@ -10,6 +10,17 @@
         android:id="@+id/login_fragment"
         android:name="com.example.iwen.jetpacknavigation.fragment.LoginFragment">
 
+        <action
+            android:id="@+id/to_register_fragment"
+            app:destination="@id/register_fragment" />
+
+        <action
+            android:id="@+id/to_forget_fragment"
+            app:destination="@id/forget_fragment" />
+
+        <action android:id="@+id/to_agreement_page"
+            app:destination="@id/agreement_activity"/>
+
     </fragment>
 
     <fragment
@@ -23,5 +34,9 @@
         android:name="com.example.iwen.jetpacknavigation.fragment.RegisterFragment">
 
     </fragment>
+
+    <activity
+        android:id="@+id/agreement_activity"
+        android:name="com.example.iwen.jetpacknavigation.AgreementActivity" />
 
 </navigation>

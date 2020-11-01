@@ -10,4 +10,22 @@
         android:layout_height="wrap_content"
         android:text="登录界面" />
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="跳转到注册界面"
+        android:id="@+id/toRegisterPage"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="跳转到找回密码界面"
+        android:id="@+id/toForgetPage"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="跳转到用户协议界面"
+        android:id="@+id/toAgreementPage"/>
+
 </LinearLayout>

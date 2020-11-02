@@ -16,7 +16,7 @@
             app:enterAnim="@anim/slide_from_right_to_left_in"
             app:exitAnim="@anim/slide_from_right_to_left_out"
             app:popEnterAnim="@anim/slide_from_left_to_right_in"
-            app:popExitAnim="@anim/slide_from_left_to_right_out"/>
+            app:popExitAnim="@anim/slide_from_left_to_right_out" />
 
         <action
             android:id="@+id/to_forget_fragment"
@@ -38,6 +38,21 @@
         android:id="@+id/register_fragment"
         android:name="com.example.iwen.jetpacknavigation.fragment.RegisterFragment">
 
+        <action
+            android:id="@+id/to_verify_fragment"
+            app:destination="@+id/avatar_verify_fragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/avatar_verify_fragment"
+        android:name="com.example.iwen.jetpacknavigation.fragment.AvatarVerifyFragment">
+
+        <action
+            android:id="@+id/to_login_page"
+            app:destination="@+id/login_fragment"
+            app:popUpTo="@id/login_fragment"
+            app:popUpToInclusive="true" />
     </fragment>
 
     <activity

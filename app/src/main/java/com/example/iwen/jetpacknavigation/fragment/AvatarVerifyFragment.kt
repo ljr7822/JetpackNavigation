@@ -4,22 +4,21 @@ import android.view.View
 import androidx.navigation.fragment.findNavController
 import com.example.iwen.jetpacknavigation.R
 import com.example.iwen.jetpacknavigation.base.BaseFragment
-import kotlinx.android.synthetic.main.fragment_register.view.*
+import kotlinx.android.synthetic.main.fragment_avatar_verify.view.*
 
 /**
- * 注册的Fragment
  * author : Iwen大大怪
- * create : 2020/11/1 22:04
+ * create : 2020/11/2 22:04
  */
-class RegisterFragment: BaseFragment() {
+class AvatarVerifyFragment : BaseFragment() {
     override fun getLayoutResId(): Int {
-        return R.layout.fragment_register
+        return R.layout.fragment_avatar_verify
     }
 
     override fun initView(rootView: View) {
         super.initView(rootView)
-        rootView.toAvatar.setOnClickListener {
-            findNavController().navigate(R.id.to_verify_fragment)
+        rootView.avatarVerifyBtn.setOnClickListener {
+            findNavController().navigate(R.id.to_login_page)
         }
     }
 }

@@ -402,3 +402,71 @@ Navigation.findNavController(View)
 
 - NavController.popBackStack()
 
+## 三、Navigation跳转Fragment实现元素共享
+
+[官方文档]:https://developer.android.google.cn/training/basics/fragments/animate
+[Use shared element transitions]:https://developer.android.google.cn/training/basics/fragments/animate#shared
+
+#### 1.1、使用方法
+
+在较高的层次上，这是如何使用共享元素进行片段过渡：
+
+##### 1.1.1、为每个共享元素视图分配唯一的过渡名称。
+
+**android:transitionName="userAvatar"**
+
+- 元素原始界面：**LoginFragment.xml**
+
+```xml
+<ImageView
+        android:id="@+id/userIcon"
+        android:transitionName="userAvatar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ic_launcher_round"/>
+```
+
+- 被共享界面：**RegisterFragment.xml**
+
+```xml
+<ImageView
+        android:id="@+id/registerIcon"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@mipmap/ic_launcher_round"
+        android:transitionName="userAvatar" />
+```
+
+##### 1.1.2、将共享元素视图和过渡名称添加到FragmentTransaction。
+
+- 元素原始界面：**LoginFragment.kt**
+
+```kotlin
+val imagePair = Pair<View,String>(userIcon, "userAvatar")
+val extras = FragmentNavigatorExtras(imagePair)
+```
+
+##### 1.1.3、设置共享元素过渡动画。
+
+- 被共享界面：**RegisterFragment.kt**
+
+```kotlin
+override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        sharedElementEnterTransition = TransitionInflater.from(requireContext())
+            .inflateTransition(R.transition.shared_image)
+}
+```
+
+- **res/transition/shared_image.xml**
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<transitionSet xmlns:android="http://schemas.android.com/apk/res/android">
+    <autoTransition android:duration="400" />
+</transitionSet>
+```
+
+#### 1.2、效果图
+
+![共享元素](https://tempimg-1302248544.cos.ap-chengdu.myqcloud.com/Img/anims/navigationFragmentAninSh.gif)

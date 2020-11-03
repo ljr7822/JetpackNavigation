@@ -171,7 +171,6 @@ app:defaultNavHost="true" 属性确保您的 NavHostFragment 会拦截系统返�
     <fragment
         android:id="@+id/forget_fragment"
         android:name="com.example.iwen.jetpacknavigation.fragment.ForgetFragment">
-
     </fragment>
 
     <fragment

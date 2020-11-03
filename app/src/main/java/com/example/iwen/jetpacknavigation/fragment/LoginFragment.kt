@@ -1,9 +1,11 @@
 package com.example.iwen.jetpacknavigation.fragment
 
 import android.view.View
+import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import com.example.iwen.jetpacknavigation.R
 import com.example.iwen.jetpacknavigation.base.BaseFragment
+import kotlinx.android.synthetic.main.fragment_login.*
 import kotlinx.android.synthetic.main.fragment_login.view.*
 
 /**
@@ -11,7 +13,7 @@ import kotlinx.android.synthetic.main.fragment_login.view.*
  * author : Iwen大大怪
  * create : 2020/11/1 22:04
  */
-class LoginFragment: BaseFragment() {
+class LoginFragment : BaseFragment() {
     override fun getLayoutResId(): Int {
         return R.layout.fragment_login
     }
@@ -19,8 +21,10 @@ class LoginFragment: BaseFragment() {
     override fun initView(rootView: View) {
         super.initView(rootView)
         rootView.toRegisterPage.setOnClickListener {
+            val imagePair = Pair<View,String>(userIcon, "userAvatar")
+            val extras = FragmentNavigatorExtras(imagePair)
             // 跳转到注册界面
-            findNavController().navigate(R.id.to_register_fragment)
+            findNavController().navigate(R.id.to_register_fragment,null,null,extras)
         }
 
         rootView.toForgetPage.setOnClickListener {

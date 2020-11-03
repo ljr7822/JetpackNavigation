@@ -12,11 +12,13 @@
 
         <action
             android:id="@+id/to_register_fragment"
-            app:destination="@id/register_fragment"
-            app:enterAnim="@anim/slide_from_right_to_left_in"
+            app:destination="@id/register_fragment" />
+
+        <!--动画
+        app:enterAnim="@anim/slide_from_right_to_left_in"
             app:exitAnim="@anim/slide_from_right_to_left_out"
             app:popEnterAnim="@anim/slide_from_left_to_right_in"
-            app:popExitAnim="@anim/slide_from_left_to_right_out" />
+            app:popExitAnim="@anim/slide_from_left_to_right_out" -->
 
         <action
             android:id="@+id/to_forget_fragment"

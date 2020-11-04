@@ -1,6 +1,8 @@
 package com.example.iwen.jetpacknavigation.fragment
 
 import android.view.View
+import androidx.core.app.ActivityOptionsCompat
+import androidx.navigation.ActivityNavigator
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import com.example.iwen.jetpacknavigation.R
@@ -33,9 +35,15 @@ class LoginFragment : BaseFragment() {
         }
 
         rootView.toAgreementPage.setOnClickListener {
-            // 跳转到找回密码界面
-            findNavController().navigate(R.id.to_agreement_page)
+            // 跳转到用户协议界面
+            val pair = androidx.core.util.Pair<View,String>(userIcon, "userAvatar")
+            val options = ActivityOptionsCompat.makeSceneTransitionAnimation(
+                requireActivity(),
+                pair)
+            val extras = ActivityNavigator.Extras.Builder()
+                .setActivityOptions(options)
+                .build()
+            findNavController().navigate(R.id.to_agreement_page,null,null,extras)
         }
-
     }
 }

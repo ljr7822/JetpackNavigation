@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_taobao_main"
+    app:startDestination="@id/taobao_index"
+    tools:ignore="UnusedNavigation">
+
+    <fragment
+        android:id="@+id/taobao_index"
+        android:name="com.example.iwen.jetpacknavigation.taobao.TIndexFragment"
+        android:label="TIndexFragment" />
+    <fragment
+        android:id="@+id/taobao_onsell"
+        android:name="com.example.iwen.jetpacknavigation.taobao.TOnsellFragment"
+        android:label="TOnsellFragment" />
+    <fragment
+        android:id="@+id/taobao_redpocket"
+        android:name="com.example.iwen.jetpacknavigation.taobao.TRedpocketFragment"
+        android:label="TRedpocketFragment" />
+    <fragment
+        android:id="@+id/taobao_seaech"
+        android:name="com.example.iwen.jetpacknavigation.taobao.TSearchFragment"
+        android:label="TSearchFragment" />
+</navigation>

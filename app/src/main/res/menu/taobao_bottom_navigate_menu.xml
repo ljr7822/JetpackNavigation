@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/taobao_index"
+        android:icon="@drawable/home_black"
+        android:title="首页" />
+    <item
+        android:id="@+id/taobao_onsell"
+        android:icon="@drawable/home_black"
+        android:title="精选" />
+    <item
+        android:id="@+id/taobao_redpocket"
+        android:icon="@drawable/home_black"
+        android:title="特惠" />
+    <item
+        android:id="@+id/taobao_seaech"
+        android:icon="@drawable/home_black"
+        android:title="搜索" />
+
+</menu>
